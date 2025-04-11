@@ -47,14 +47,15 @@ export class Calculator {
   toggleTheme() {
     let theme = localStorage.getItem('theme');
 
-    if (theme === 'theme-second') {
-      theme = 'theme-one'
-    } else if (theme === 'theme-one') {
-      theme = 'theme-second'
-    }
+    theme = theme === 'theme-second' ? 'theme-one' : 'theme-second';
+
+    this.setDelayedTheme(theme);
+  }
+
+  setDelayedTheme(theme) {
     setTimeout(() => {
       this.setTheme(theme);
-    }, 500)
+    }, 500);
   }
 
   save() {
